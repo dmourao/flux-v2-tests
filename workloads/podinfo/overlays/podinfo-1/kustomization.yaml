@@ -3,4 +3,4 @@ kind: Kustomization
 bases:
 - ../../bases
 
-nameSuffix: "-1"
+nameSuffix: "-3"
