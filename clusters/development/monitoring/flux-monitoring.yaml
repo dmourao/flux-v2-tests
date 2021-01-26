@@ -2,6 +2,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
   name: kustomization-controller-metrics
+  namespace: development
 spec:
   podTargetLabels:
   - "app"
@@ -17,6 +18,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
   name: source-controller-metrics
+  namespace: development
 spec:
   podTargetLabels:
   - "app"
@@ -32,6 +34,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
   name: helm-controller-metrics
+  namespace: development
 spec:
   podTargetLabels:
   - "app"
