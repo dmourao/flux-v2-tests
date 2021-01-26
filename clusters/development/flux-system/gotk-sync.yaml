@@ -70,3 +70,4 @@ spec:
       name: '*'
     - kind: Kustomization
       name: '*'
+  suspend: true
