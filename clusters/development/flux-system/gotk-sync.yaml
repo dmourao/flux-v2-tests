@@ -64,7 +64,7 @@ metadata:
 spec:
   providerRef:
     name: msteams
-  eventSeverity: info
+  eventSeverity: error
   eventSources:
     - kind: GitRepository
       name: '*'
