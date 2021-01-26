@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  path: ./workloads/podinfo/overlays/podinfo-11
+  path: ./workloads/podinfo/overlays/podinfo-1
   prune: true
   sourceRef:
     kind: GitRepository
