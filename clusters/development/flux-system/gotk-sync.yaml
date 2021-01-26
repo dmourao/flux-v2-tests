@@ -34,3 +34,39 @@ spec:
     kind: GitRepository
     name: flux-system
   validation: client
+#---
+# kind: Secret
+# apiVersion: v1
+# metadata:
+#   name: msteams-url
+#   namespace: flux-system
+# data:
+#   address: >-
+#     aHR0cHM6Ly9vdXRsb29rLm9mZmljZS5jb20vd2ViaG9vay9jODM5MDgyMC1hZGM2LTQyOTEtYmMxZC03NTViYmE5Y2NlYmJAZTRkYTY1NDctYzQ4ZS00NDFhLWEyMzYtNjU2NjVlZjA1NGQxL0luY29taW5nV2ViaG9vay83NzUzZTQ3MmE1OGQ0NWM2OTQzMTcyYWQ5NGFlNWRlZC81ZjI1NTcwMi01ODkyLTQxYTEtYTgxMy01M2MxMmNjNThiOTA=
+# type: Opaque
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Provider
+metadata:
+  name: msteams
+  namespace: flux-system
+spec:
+  channel: FluxCloudTest
+  secretRef:
+    name: msteams-url
+  type: msteams
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Alert
+metadata:
+  name: on-call
+  namespace: flux-system
+spec:
+  providerRef:
+    name: msteams
+  eventSeverity: info
+  eventSources:
+    - kind: GitRepository
+      name: '*'
+    - kind: Kustomization
+      name: '*'
