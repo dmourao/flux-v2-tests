@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  path: ./workloads/podinfo/overlays/podinfo-11
+  path: ./workloads/podinfo/overlays/podinfo-1
   prune: true
   sourceRef:
     kind: GitRepository
@@ -14,5 +14,5 @@ spec:
   targetNamespace: flux-v2-tests
   images:
     - name: stefanprodan/podinfo:1.3.2
-      newName: stefanprodan/podinfo
+      newName: stefanprodan/podinfooo
       newTag: 1.3.2
