@@ -1,0 +1,44 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: kustomization-controller-metrics
+spec:
+  podTargetLabels:
+  - "app"
+  selector:
+    matchLabels:
+      app: kustomize-controller
+  namespaceSelector:
+    any: true
+  podMetricsEndpoints:
+  - port: http-prom
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: source-controller-metrics
+spec:
+  podTargetLabels:
+  - "app"
+  selector:
+    matchLabels:
+      app: source-controller
+  namespaceSelector:
+    any: true
+  podMetricsEndpoints:
+  - port: http-prom
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: helm-controller-metrics
+spec:
+  podTargetLabels:
+  - "app"
+  selector:
+    matchLabels:
+      app: helm-controller
+  namespaceSelector:
+    any: true
+  podMetricsEndpoints:
+  - port: http-prom
